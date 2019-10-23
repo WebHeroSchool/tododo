@@ -1,5 +1,5 @@
 import React from 'react';
 
-const InputItem = () => (<span>InputItem</span>);
+const InputItem = () => (<input placeholder={"Ещё одна задача? Легко..."} type={"text"} />);
 
 export default InputItem;
