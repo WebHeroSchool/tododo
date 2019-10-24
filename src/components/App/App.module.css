@@ -6,3 +6,11 @@
 .title {
     font-family: 'Helvetica';
 }
+
+.item {
+    color: black;
+}
+
+.done {
+    color: #c4c4c4;
+}
