@@ -8,7 +8,7 @@ const App = () => {
     const items = [
         {
             value: 'Сходить в магазин',
-            isDone: true
+            isDone: false
         },
         {
             value: 'Закончить задание',
@@ -20,16 +20,16 @@ const App = () => {
         },
         {
             value: 'Сделать уборку',
-            isDone: true
+            isDone: false
         }
     ];
 
     return (
         <div className={styles.wrap}>
-            <h1 className={styles.title}>Важные дела!</h1>
+            <h1 className={styles.title}>Список дел:</h1>
             <InputItem />
             <ItemList items={items} />
-            <Footer count={4} />
+            <Footer count={3} />
         </div>);
 }
 
