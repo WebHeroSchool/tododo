@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    height: 120px;
+}
+
+.button__wrap{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;   
+    margin-top: 10px; 
+    height: 80px;   
+}
+
+.button {
+    padding: 5px;
+    background: white;
+    border: #0000FF 1px solid;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.button:hover {    
+    transition: .7s;
+    border: #10FF58 2px solid;
+    border-radius: 10px;
+}
