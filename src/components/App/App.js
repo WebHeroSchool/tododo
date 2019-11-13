@@ -50,11 +50,11 @@ class App extends React.Component {
         this.setState({ items: newItemList });
     };
 
-    onClickAdd = () => this.setState(state => ({
+    onClickAdd = value => this.setState(state => ({
         items: [
             ...state.items,
             {
-                value: 'Добавить кнопку',
+                value,
                 isDone: false,
                 is: state.count + 1
             }
