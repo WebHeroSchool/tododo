@@ -1,3 +1,9 @@
+.addtask__wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
 .input {
     width: 250px;
 }
