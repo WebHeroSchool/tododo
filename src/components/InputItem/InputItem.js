@@ -6,21 +6,29 @@ import Button from '@material-ui/core/Button';
 
 class InputItem extends React.Component {
     state = {
-        inputValue: ''
+        inputValue: '',
+        isError: false
     };
 
     onButtonClick = () => {
-        this.setState({
-            inputValue: ''
-        });
+        if (this.state.inputValue == false) {
+            this.setState({
+                isError: true
+            })
+        } else {
+            this.setState({
+                inputValue: '',
+                isError: false
+            })
 
-        this.props.onClickAdd(this.state.inputValue);
-    }
+            this.props.onClickAdd(this.state.inputValue.toUpperCase());
+        }
+    };
 
     render() {
-
-        return (<div className={styles.addtask__wrapper}>
-            <TextField className={styles.input}
+        let textField;
+        if (this.state.isError == false) {
+            textField = <TextField
                 id="outlined-dense-multiline"
                 label="Добавить задачу"
                 margin="dense"
@@ -28,6 +36,21 @@ class InputItem extends React.Component {
                 value={this.state.inputValue}
                 onChange={event => this.setState({ inputValue: event.target.value })}
             />
+        } else {
+            textField = <TextField
+                error
+                id="outlined-dense-multiline"
+                className={styles.addtask__wrapper}
+                label='Нужно ввести текст!'
+                margin='dense'
+                variant="outlined"
+                value={this.state.inputValue}
+                onChange={event => this.setState({ inputValue: event.target.value })}
+            />
+        };
+
+        return (<div className={styles.addtask__wrapper}>
+            {textField}
             <Button
                 variant="contained"
                 color="primary"
