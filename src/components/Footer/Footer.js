@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../Footer/Footer.module.css';
+import PropTypes from 'prop-types';
 
 const Footer = ({ casesCount }) => (
     <div className={styles.footer}>
@@ -15,8 +16,10 @@ const Footer = ({ casesCount }) => (
     </div >
 );
 
-Footer.defaultProps = {
-    count: 0
+Footer.propTypes = {
+    casesCount: PropTypes.number.isRequired
 };
+
+
 
 export default Footer;
