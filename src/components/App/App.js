@@ -63,6 +63,7 @@ class App extends React.Component {
     }));
 
     render() {
+        const casesCount = this.state.items.filter(item => item.isDone === false);
         return (
             <div className={styles.wrap}>
                 <h1 className={styles.title}>Список дел:</h1>
@@ -72,7 +73,7 @@ class App extends React.Component {
                     onClickDone={this.onClickDone}
                     onClickDelete={this.onClickDelete}
                 />
-                <Footer count={3} />
+                <Footer casesCount={casesCount.length} />
             </div>);
     }
 };

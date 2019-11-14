@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../Footer/Footer.module.css';
 
-const Footer = ({ count }) => (
+const Footer = ({ casesCount }) => (
     <div className={styles.footer}>
         <div>
-            <span>Осталось дел: {count}</span>
+            <span>Осталось дел: {casesCount}</span>
         </div>
         <div className={styles.button__wrap}>
             <button className={styles.button}>Все</button>

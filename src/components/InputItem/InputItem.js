@@ -18,7 +18,6 @@ class InputItem extends React.Component {
     }
 
     render() {
-        const { onClickAdd } = this.props;
 
         return (<div className={styles.addtask__wrapper}>
             <TextField className={styles.input}
