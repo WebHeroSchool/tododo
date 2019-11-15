@@ -1,6 +1,7 @@
 import React from 'react';
 import Item from '../Item/Item';
 import styles from '../App/App.module.css';
+import PropTypes from 'prop-types';
 
 
 
@@ -18,14 +19,8 @@ const ItemList = ({ items, onClickDone, onClickDelete }) => (<ul>
     </li>)}
 </ul>);
 
-ItemList.defaultProps = {
-    itemList: [
-        {
-            value: "Нужно добавить задачу",
-            isDone: false,
-            id: 0
-        }
-    ]
+ItemList.propTypes = {
+    items: PropTypes.array.isRequired
 };
 
 export default ItemList;

@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import styles from '../InputItem/Input.module.css'
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 
 
 class InputItem extends React.Component {
@@ -60,6 +61,11 @@ class InputItem extends React.Component {
         </Button>
         </div>);
     }
+}
+
+InputItem.propTypes = {
+    inputValue: PropTypes.string.isRequired,
+    isError: PropTypes.bool.isRequired
 }
 
 export default InputItem;
