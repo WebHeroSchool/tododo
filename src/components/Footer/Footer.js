@@ -17,7 +17,7 @@ const Footer = ({ casesCount }) => (
 );
 
 Footer.propTypes = {
-    casesCount: PropTypes.number.isRequired
+    casesCount: PropTypes.number
 };
 
 

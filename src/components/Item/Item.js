@@ -20,9 +20,9 @@ const Item = ({ value, isDone, onClickDone, id }) => (
     </div >);
 
 Item.propTypes = {
-    value: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    isDone: PropTypes.bool.isRequired
+    value: PropTypes.string,
+    id: PropTypes.number,
+    isDone: PropTypes.bool
 };
 
 export default Item;

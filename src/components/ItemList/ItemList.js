@@ -20,7 +20,7 @@ const ItemList = ({ items, onClickDone, onClickDelete }) => (<ul>
 </ul>);
 
 ItemList.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array
 };
 
 export default ItemList;
