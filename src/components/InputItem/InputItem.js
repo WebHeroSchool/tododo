@@ -12,7 +12,7 @@ class InputItem extends React.Component {
     };
 
     onButtonClick = () => {
-        if (this.state.inputValue === false) {
+        if (this.state.inputValue == false) {
             this.setState({
                 isError: true
             })
@@ -28,7 +28,7 @@ class InputItem extends React.Component {
 
     render() {
         let textField;
-        if (this.state.isError === false) {
+        if (this.state.isError == false) {
             textField = <TextField
                 id="outlined-dense-multiline"
                 label="Добавить задачу"
