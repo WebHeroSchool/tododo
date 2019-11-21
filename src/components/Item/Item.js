@@ -1,17 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
-import styles from '../App/App.module.css';
+import styles from '../Todo/Todo.module.css';
 import Checkbox from '@material-ui/core/Checkbox';
 import PropTypes from 'prop-types';
 
 class Item extends React.Component {
-    componentDidMount() {
-        this.timerID = setInterval(() => console.log('componentDidMount'), 1000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
 
     render() {
         const { value, isDone, onClickDone, id } = this.props
