@@ -13,9 +13,9 @@ const App = () =>
         <div className={styles.wrap}>
             <Card className={styles.sidebar}>
                 <MenuList>
-                    <Link to='/' className={styles.link}><MenuItem>Обо мне</MenuItem></Link>
-                    <Link to='/todo' className={styles.link}><MenuItem>Список дел</MenuItem></Link>
-                    <Link to='/contacts' className={styles.link}><MenuItem>Контакты</MenuItem></Link>
+                    <Link to='/' className={styles.link}><MenuItem>Обо мне:</MenuItem></Link>
+                    <Link to='/todo' className={styles.link}><MenuItem>Список дел:</MenuItem></Link>
+                    <Link to='/contacts' className={styles.link}><MenuItem>Контакты:</MenuItem></Link>
                 </MenuList>
             </Card>
 
