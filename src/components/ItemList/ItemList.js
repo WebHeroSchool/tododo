@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from '../Item/Item';
-import styles from '../App/App.module.css';
+import styles from '../Todo/Todo.module.css';
 import PropTypes from 'prop-types';
 
 

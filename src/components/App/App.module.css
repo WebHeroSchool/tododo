@@ -1,52 +1,12 @@
 .wrap {
-    width: 350px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 600px;
     height: 550px;
-    margin: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-around;
-    border: 3px solid #0000FF;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.title {
-    font-family: 'Helvetica';
-}
-
-.item {
-    color: black;
-    list-style: none;
-    margin-left: -60;
-}
-
-.done {
-    color: #c4c4c4;
-    text-decoration: line-through;
-}
-
-.task {
-    margin: auto;
-    margin-left: -40px;
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.button__img {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBmaWxsPSIjZjc4ZjhmIiBkPSJNMTUgMTcuNzIyTDYuNDI5IDI2LjI5MyAzLjcwNyAyMy41NzEgMTIuMjc4IDE1IDMuNzA3IDYuNDI5IDYuNDI5IDMuNzA3IDE1IDEyLjI3OCAyMy41NzEgMy43MDcgMjYuMjkzIDYuNDI5IDE3LjcyMiAxNSAyNi4yOTMgMjMuNTcxIDIzLjU3MSAyNi4yOTN6Ij48L3BhdGg+PHBhdGggZmlsbD0iI2M3NDM0MyIgZD0iTTIzLjU3MSw0LjQxNGwyLjAxNCwyLjAxNGwtNy44NjQsNy44NjRMMTcuMDE0LDE1bDAuNzA3LDAuNzA3bDcuODY0LDcuODY0bC0yLjAxNCwyLjAxNCBsLTcuODY0LTcuODY0TDE1LDE3LjAxNGwtMC43MDcsMC43MDdsLTcuODY0LDcuODY0bC0yLjAxNC0yLjAxNGw3Ljg2NC03Ljg2NEwxMi45ODYsMTVsLTAuNzA3LTAuNzA3TDQuNDE0LDYuNDI5bDIuMDE0LTIuMDE0IGw3Ljg2NCw3Ljg2NEwxNSwxMi45ODZsMC43MDctMC43MDdMMjMuNTcxLDQuNDE0IE0yMy41NzEsM0wxNSwxMS41NzFMNi40MjksM0wzLDYuNDI5TDExLjU3MSwxNUwzLDIzLjU3MUw2LjQyOSwyN0wxNSwxOC40MjkgTDIzLjU3MSwyN0wyNywyMy41NzFMMTguNDI5LDE1TDI3LDYuNDI5TDIzLjU3MSwzTDIzLjU3MSwzeiI+PC9wYXRoPjwvc3ZnPg==') 50% 50% no-repeat;
-    background-size: 100%;
-}
-
-.button__img:focus {
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    border-radius: 10px;
-}
-
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #000;
+  }
