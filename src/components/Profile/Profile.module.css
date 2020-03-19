@@ -1,0 +1,19 @@
+.wrap {
+    min-width: 500px;
+    padding: 10px;
+    display: flex;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .avatar {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  .text {
+    color: aquamarine;
+  }

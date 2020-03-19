@@ -20,16 +20,33 @@ class About extends React.Component {
                 isLoading: false
             });
         });
+
+        octokit.users.getByUsername({
+            username: 'OtoSigen'
+        })
+            .then(({ data }) => {
+                this.setState({
+                    User: data,
+                    isLoadingUser: false,
+                });
+            })
     }
 
     render() {
-        const { isLoading, repoList } = this.state;
+        const { isLoading, repoList, User } = this.state;
         return (
             <div className={styles.wrap}>
                 <h1 className={styles.title}>{isLoading ? <CircularProgress /> : 'Обо мне'}</h1>
                 {!isLoading && <ol>
                     {repoList.map(repo => (<li key={repo.id}>
-                        {repo.name}
+                        <a
+                            href={repo.svn_url}
+                            className={styles['info-about-repository-wrapped__link']}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            {repo.name}
+                        </a>
                     </li>))}
                 </ol>}
 
