@@ -1,81 +1,91 @@
-import React from 'react';
-import ItemList from '../ItemList/ItemList';
-import InputItem from '../InputItem/InputItem';
-import Footer from '../Footer/Footer';
-import styles from '../Todo/Todo.module.css';
+import React, { useState, useEffect } from "react";
+import ItemList from "../ItemList/ItemList";
+import InputItem from "../InputItem/InputItem";
+import Footer from "../Footer/Footer";
+import styles from "../Todo/Todo.module.css";
 
-class App extends React.Component {
-    state = {
-        items: [
-            {
-                value: 'Сходить в магазин',
-                isDone: false,
-                id: 1
-            },
-            {
-                value: 'Закончить задание',
-                isDone: false,
-                id: 2
-            },
-            {
-                value: 'Прочитать статью',
-                isDone: false,
-                id: 3
-            },
-            {
-                value: 'Сделать уборку',
-                isDone: false,
-                id: 4
-            }
-        ]
+const Todo = () => {
+  const initialState = {
+    items: [
+      {
+        value: "Сходить в магазин",
+        isDone: false,
+        id: 1,
+      },
+      {
+        value: "Закончить задание",
+        isDone: false,
+        id: 2,
+      },
+      {
+        value: "Прочитать статью",
+        isDone: false,
+        id: 3,
+      },
+      {
+        value: "Сделать уборку",
+        isDone: false,
+        id: 4,
+      },
+    ],
+    count: 4,
+  };
 
-    };
+  const [items, setItems] = useState(initialState.items);
+  const [count, setCount] = useState(initialState.count);
 
-    onClickDone = id => {
-        const newItemList = this.state.items.map(item => {
-            const newItem = { ...item };
+  useEffect(() => {
+    console.log("Update");
+  });
 
-            if (item.id === id) {
-                newItem.isDone = !item.isDone;
-            }
+  useEffect(() => {
+    console.log("mounted");
+  }, [count]);
 
-            return newItem;
-        });
+  const onClickDone = (id) => {
+    const newItemList = items.map((item) => {
+      const newItem = { ...item };
 
-        this.setState({ items: newItemList });
-    };
+      if (item.id === id) {
+        newItem.isDone = !item.isDone;
+      }
+      return newItem;
+    });
+    setItems(newItemList);
+  };
 
-    onClickDelete = id => {
-        const newItemList = this.state.items.filter(item => item.id !== id);
-        this.setState({ items: newItemList });
-    };
+  const onClickDelete = (id) => {
+    const newItemList = items.filter((item) => item.id !== id);
+    setItems(newItemList);
+    setCount((count) => count - 1);
+  };
 
-    onClickAdd = value => this.setState(state => ({
-        items: [
-            ...state.items,
-            {
-                value,
-                isDone: false,
-                is: state.count + 1
-            }
-        ],
-        count: state.count + 1
-    }));
-
-    render() {
-        const casesCount = this.state.items.filter(item => item.isDone === false);
-        return (
-            <div className={styles.wrap}>
-                <h1 className={styles.title}>Список дел:</h1>
-                <InputItem onClickAdd={this.onClickAdd} />
-                <ItemList
-                    items={this.state.items}
-                    onClickDone={this.onClickDone}
-                    onClickDelete={this.onClickDelete}
-                />
-                <Footer casesCount={casesCount.length} />
-            </div>);
+  const onClickAdd = (value) => {
+    if (value !== "" && !items.some((item) => item.value === value)) {
+      setItems([
+        ...items,
+        {
+          value,
+          isDone: false,
+          id: count + 1,
+        },
+      ]);
+      setCount((count) => count + 1);
     }
+  };
+
+  return (
+    <div className={styles.wrap}>
+      <h1 className={styles.title}>Список дел:</h1>
+      <InputItem onClickAdd={onClickAdd} />
+      <ItemList
+        items={items}
+        onClickDone={onClickDone}
+        onClickDelete={onClickDelete}
+      />
+      <Footer count={count} />
+    </div>
+  );
 };
 
-export default App;
+export default Todo;

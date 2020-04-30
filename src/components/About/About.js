@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./About.module.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Octokit from "@octokit/rest";
-import CardContent from '@material-ui/core/CardContent';
-import Profile from "../Profile/Profile"
+import { Octokit } from "@octokit/rest";
+import CardContent from "@material-ui/core/CardContent";
+import Profile from "../Profile/Profile";
 
 const octokit = new Octokit();
 
@@ -13,34 +13,35 @@ class About extends React.Component {
     isLoadingUser: true,
     isErrorRep: false,
     isErrorUser: false,
-    errorTextRep: '',
-    errorTextUser: '',
+    errorTextRep: "",
+    errorTextUser: "",
     repoList: [],
-    user: {}
+    user: {},
   };
 
   componentDidMount() {
-
-    octokit.repos.listForUser({
-      username: "OtoSigen"
-    })
+    octokit.repos
+      .listForUser({
+        username: "OtoSigen",
+      })
       .then(({ data }) => {
         this.setState({
           repoList: data,
-          isLoadingRep: false
+          isLoadingRep: false,
         });
       })
       .catch(() => {
         this.setState({
           isLoadingRep: false,
           isErrorRep: true,
-          errorTextRep: 'Упс, репозитории не найдены!'
+          errorTextRep: "Упс, репозитории не найдены!",
         });
       });
 
-    octokit.users.getByUsername({
-      username: "OtoSigen"
-    })
+    octokit.users
+      .getByUsername({
+        username: "OtoSigen",
+      })
       .then(({ data }) => {
         this.setState({
           user: data,
@@ -51,46 +52,59 @@ class About extends React.Component {
         this.setState({
           isLoadingUser: false,
           isErrorUser: true,
-          errorTextUser: 'Пользователь не найден!'
+          errorTextUser: "Пользователь не найден!",
         });
       });
-  };
+  }
 
   render() {
-    const { isLoadingRep, repoList, isErrorRep, errorTextRep, errorTextUser, user, isLoadingUser, isErrorUser } = this.state;
+    const {
+      isLoadingRep,
+      repoList,
+      isErrorRep,
+      errorTextRep,
+      errorTextUser,
+      user,
+      isLoadingUser,
+      isErrorUser,
+    } = this.state;
     return (
       <CardContent className={styles.wrap}>
-        <div className={styles.aboutme} >
-          <h1 className={styles.title}>
-            Обо мне
-          </h1>
-          {!isLoadingUser &&
+        <div className={styles.aboutme}>
+          <h1 className={styles.title}>Обо мне</h1>
+          {!isLoadingUser && (
             <div>
-              {isErrorUser ? errorTextUser :
-                <Profile avatar={user.avatar_url} name={user.name} login={user.login} />
-              }
+              {isErrorUser ? (
+                errorTextUser
+              ) : (
+                <Profile
+                  avatar={user.avatar_url}
+                  name={user.name}
+                  login={user.login}
+                />
+              )}
             </div>
-          }
+          )}
         </div>
-        <div className={styles.repo} >
+        <div className={styles.repo}>
           {isLoadingRep ? <CircularProgress /> : "Список репозиториев:"}
-          {!isLoadingRep &&
+          {!isLoadingRep && (
             <div>
-              {isErrorRep ? errorTextRep :
+              {isErrorRep ? (
+                errorTextRep
+              ) : (
                 <ol>
-                  {repoList.map(repo =>
-                    (<li key={repo.id}>
-                      <a href={repo.svn_url}>
-                        {repo.name}
-                      </a>
+                  {repoList.map((repo) => (
+                    <li key={repo.id}>
+                      <a href={repo.svn_url}>{repo.name}</a>
                     </li>
-                    ))}
+                  ))}
                 </ol>
-              }
+              )}
             </div>
-          }
+          )}
         </div>
-      </CardContent >
+      </CardContent>
     );
   }
 }
