@@ -1,12 +1,7 @@
 .wrap {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    width: 600px;
-    height: 550px;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: #000;
-  }
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: auto;
+  width: 700px;
+}

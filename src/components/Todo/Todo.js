@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
@@ -34,14 +34,6 @@ const Todo = () => {
   const [items, setItems] = useState(initialState.items);
   const [count, setCount] = useState(initialState.count);
 
-  useEffect(() => {
-    console.log("Update");
-  });
-
-  useEffect(() => {
-    console.log("mounted");
-  }, [count]);
-
   const onClickDone = (id) => {
     const newItemList = items.map((item) => {
       const newItem = { ...item };
@@ -70,13 +62,14 @@ const Todo = () => {
           id: count + 1,
         },
       ]);
+
       setCount((count) => count + 1);
     }
   };
-
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>Список дел:</h1>
+
       <InputItem onClickAdd={onClickAdd} />
       <ItemList
         items={items}

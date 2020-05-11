@@ -8,7 +8,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.9.12",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "prettier": "^2.0.5"
   }
 }

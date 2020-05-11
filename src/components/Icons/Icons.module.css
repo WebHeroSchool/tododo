@@ -1,0 +1,7 @@
+.icon__link {
+  padding-right: 10px;
+}
+
+.icon__link_hover:hover {
+  fill: #356eff;
+}
