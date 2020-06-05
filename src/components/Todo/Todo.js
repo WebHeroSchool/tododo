@@ -34,6 +34,14 @@ const Todo = () => {
   const [items, setItems] = useState(initialState.items);
   const [count, setCount] = useState(initialState.count);
 
+  const count_inWork = function () {
+    let counter = 0;
+    items.forEach((item) => {
+      if (!item.isDone) counter++;
+    });
+    return counter;
+  };
+
   const onClickDone = (id) => {
     const newItemList = items.map((item) => {
       const newItem = { ...item };
@@ -66,19 +74,38 @@ const Todo = () => {
       setCount((count) => count + 1);
     }
   };
-  return (
-    <div className={styles.wrap}>
-      <h1 className={styles.title}>Список дел:</h1>
+    return (
+      <section className={styles.todo}>
+        <div className={styles.todo_header}>
+          <h1 className={styles.title}>Список моих дел</h1>
+          <Footer count_all={items.length}
+                  count_end={items.length - count_inWork()}
+                  count_inWork={count_inWork()}
+          />
+        </div>
+        <div className={styles.wrap_todo}>
+          {items.length === 0 ? (
+            <div className={styles.empty_task}>
+              <div className={styles.error_image}/>
+              <p className={styles.error_message}>
+                Вы ещё не добавили не одной задачи
+              </p>
+              <p className={styles.message_fix}>Сделайте это прямо сейчас!</p>
+            </div>
+          ) : (
+            <ItemList
+              items={items}
+              onClickDone={onClickDone}
+              onClickDelete={onClickDelete}
+            />
+          )}
+        </div>
+        <div>
+          <InputItem onClickAdd={onClickAdd} />
+        </div>
+      </section>
+    );
 
-      <InputItem onClickAdd={onClickAdd} />
-      <ItemList
-        items={items}
-        onClickDone={onClickDone}
-        onClickDelete={onClickDelete}
-      />
-      <Footer count={count} />
-    </div>
-  );
-};
+}
 
 export default Todo;

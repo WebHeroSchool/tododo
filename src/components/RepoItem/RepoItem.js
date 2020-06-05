@@ -2,14 +2,13 @@ import React from "react";
 import styles from "../RepoItem/RepoItem.module.css";
 import classnames from "classnames";
 
-
 const RepoItem = ({
   url,
   name,
   language,
-  stargazers_count,
-  forks_count,
-  updated_at,
+  stargazersCount,
+  forksCount,
+  updatedAt,
 }) => {
   return (
     <div>
@@ -32,11 +31,11 @@ const RepoItem = ({
         >
           {language}
         </span>
-        <span className={styles.star}>{stargazers_count}</span>
-        <span className={styles.forks}>{forks_count}</span>
+        <span className={styles.star}>{stargazersCount}</span>
+        <span className={styles.forks}>{forksCount}</span>
         <span className={styles.date}>
           {"Updated on " +
-            new Date(updated_at).toLocaleDateString("en-GB", {
+            new Date(updatedAt).toLocaleDateString("en-GB", {
               day: "numeric",
               month: "short",
               year: "numeric",

@@ -1,9 +1,57 @@
-.addtask__wrapper {
+.input_wrap {
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    flex-flow: row nowrap;
+    margin: auto;
+    position: absolute;
+    bottom: 30px;
+    justify-content: center;
+    width: 700px;
 }
 
 .input {
-    width: 250px;
+    width: 592px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 29px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.btn_input {
+    margin-left: 8px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: url('../img/btn_input.png') 50% 50% no-repeat;
+}
+
+.input:hover {
+    border: 1px solid #356EFF;
+}
+
+.wrap__error-empty-text::before {
+    content: 'Для добавления дела необходимо ввести текст!';
+    position: absolute;
+    padding: 10px;
+    width: 170px;
+    font-size: 14px;
+    color: #FFF;
+    background-color: #356EFF;
+    border-radius: 6px;
+    transform: translateY(-130%);
+}
+.wrap__error-repeat-case::before {
+    content: 'Это дело уже есть в списке!';
+    position: absolute;
+    padding: 10px;
+    width: 170px;
+    font-size: 14px;
+    color: #FFF;
+    background-color: #356EFF;
+    border-radius: 6px;
+    transform: translateY(-130%);
 }

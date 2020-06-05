@@ -1,24 +1,23 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
 import styles from "../InputItem/Input.module.css";
-import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
 class InputItem extends React.Component {
   state = {
     inputValue: "",
-    isError: false,
+    isEmpty: false,
   };
 
   onButtonClick = () => {
-    if (this.state.inputValue === false) {
+    if (this.state.inputValue === "") {
       this.setState({
-        isError: true,
+        isEmpty: true,
       });
     } else {
       this.setState({
         inputValue: "",
-        isError: false,
+        isEmpty: false,
       });
 
       this.props.onClickAdd(this.state.inputValue);
@@ -26,47 +25,32 @@ class InputItem extends React.Component {
   };
 
   render() {
-    let textField;
-    if (this.state.isError === false) {
-      textField = (
-        <TextField
-          id="outlined-dense-multiline"
-          label="Добавить задачу"
-          margin="dense"
-          variant="outlined"
-          value={this.state.inputValue}
-          onChange={(event) =>
-            this.setState({ inputValue: event.target.value })
-          }
-        />
-      );
-    } else {
-      textField = (
-        <TextField
-          error
-          id="outlined-dense-multiline"
-          className={styles.addtask__wrapper}
-          label="Нужно ввести текст!"
-          margin="dense"
-          variant="outlined"
-          value={this.state.inputValue}
-          onChange={(event) =>
-            this.setState({ inputValue: event.target.value })
-          }
-        />
-      );
-    }
+    const { inputValue, isEmpty, isRepeat } = this.state;
+    const { classNameForInputWrapp } = this.props;
 
     return (
-      <div className={styles.addtask__wrapper}>
-        {textField}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.onButtonClick}
+      <div className={styles.input_wrap}>
+        <div
+          className={classnames({
+            [styles["wrap__error-empty-text"]]: isEmpty,
+            [styles["wrap__error-repeat-case"]]: classNameForInputWrapp,
+          })}
         >
-          Добавить
-        </Button>
+          <input
+            placeholder={"Введите сюда название дела..."}
+            className={styles.input}
+            value={this.state.inputValue}
+            onKeyDown={(e) => {
+              if (e.keyCode === 13) this.onButtonClick();
+            }}
+            onChange={(event) =>
+              this.setState({
+                inputValue: event.target.value,
+              })
+            }
+          />
+        </div>
+        <button className={styles.btn_input} onClick={this.onButtonClick} />
       </div>
     );
   }
