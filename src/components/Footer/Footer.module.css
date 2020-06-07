@@ -36,6 +36,10 @@
   margin: 0;
 }
 
+.button_active .count_item{
+  color: #FFFFFF;
+}
+
 .button:hover .count_item {
   color: #ffffff;
 }

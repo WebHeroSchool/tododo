@@ -29,9 +29,9 @@ class Item extends React.Component {
 }
 
 Item.propTypes = {
-  value: PropTypes.string,
-  id: PropTypes.number,
-  isDone: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  isDone: PropTypes.bool.isRequired,
 };
 
 export default Item;
