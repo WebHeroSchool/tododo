@@ -41,7 +41,9 @@ class InputItem extends React.Component {
             className={styles.input}
             value={this.state.inputValue}
             onKeyDown={(e) => {
-              if (e.keyCode === 13) this.onButtonClick();
+              if (e.keyCode === 13) {
+                this.onButtonClick();
+              }
             }}
             onChange={(event) =>
               this.setState({

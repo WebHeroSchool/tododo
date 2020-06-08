@@ -1,8 +1,8 @@
 .repo {
   width: 700px;
   height: 432px;
-  background: #ffffff;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   display: flex;
   flex-flow: column;
@@ -25,7 +25,7 @@ ol {
   padding: 20px 32px 0 32px;
 }
 
-.wrap__preloader{
+.wrap__preloader {
   width: 700px;
 }
 
@@ -42,13 +42,13 @@ ol {
   justify-content: center;
 }
 
-.errorTextRep{
-  font: normal bold 14px/16px 'Roboto';
+.errorTextRep {
+  font: normal bold 14px/16px "Roboto", sans-serif;
 }
 
 .title {
   margin: 24px 0px 0 30px;
-  font: normal bold 16px/18px 'Roboto';
+  font: normal bold 16px/18px "Roboto", sans-serif;
 }
 
 .norepo {
@@ -58,7 +58,7 @@ ol {
   align-items: center;
 }
 
-.error_image{
+.error_image {
   background: url(../img/repoImage.png) no-repeat;
   margin: 60px 0 24px 0;
   height: 164px;
@@ -66,18 +66,18 @@ ol {
 }
 
 .error_message {
-  font: normal normal 18px/21px 'Roboto';
+  font: normal normal 18px/21px "Roboto", sans-serif;
   margin: 0 0 8px 0;
 }
 
 .message_fix {
   margin: 0;
-  color: #999999;
-  font: normal normal 16px/18px 'Roboto';
+  color: #999;
+  font: normal normal 16px/18px "Roboto", sans-serif;
 }
 
 .link {
-  color: #356EFF;
+  color: #356eff;
   text-decoration: underline;
 }
 

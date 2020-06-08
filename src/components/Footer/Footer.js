@@ -3,13 +3,7 @@ import styles from "../Footer/Footer.module.css";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 
-const Footer = ({
-  count_all,
-  count_end,
-  count_inWork,
-  sorting,
-  onClickSort,
-}) => (
+const Footer = ({ countAll, countEnd, countInWork, sorting, onClickSort }) => (
   <div className={styles.footer}>
     <div className={styles.button__wrap}>
       <button
@@ -19,7 +13,7 @@ const Footer = ({
         })}
         onClick={() => onClickSort("Завершенные")}
       >
-        Завершённые<p className={styles.count_item}>{count_end}</p>
+        Завершённые<p className={styles.count_item}>{countEnd}</p>
       </button>
       <button
         className={classnames({
@@ -28,7 +22,7 @@ const Footer = ({
         })}
         onClick={() => onClickSort("Незавершенные")}
       >
-        Незавершённые<p className={styles.count_item}>{count_inWork}</p>
+        Незавершённые<p className={styles.count_item}>{countInWork}</p>
       </button>
       <button
         className={classnames({
@@ -37,7 +31,7 @@ const Footer = ({
         })}
         onClick={() => onClickSort("Все")}
       >
-        Все<p className={styles.count_item}>{count_all}</p>
+        Все<p className={styles.count_item}>{countAll}</p>
       </button>
     </div>
   </div>

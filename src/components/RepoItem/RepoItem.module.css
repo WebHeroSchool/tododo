@@ -1,7 +1,7 @@
 .repo_name_link {
   color: #000;
   height: 30px;
-  font: normal bold 14px/16px "Roboto";
+  font: normal bold 14px/16px "Roboto", sans-serif;
   text-decoration: none;
 }
 
@@ -12,7 +12,7 @@
 .info_about_repo {
   display: flex;
   color: #999;
-  font: normal normal 12px/14px "Roboto";
+  font: normal normal 12px/14px "Roboto", sans-serif;
   padding-top: 7px;
 }
 

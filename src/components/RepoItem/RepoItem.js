@@ -6,9 +6,9 @@ const RepoItem = ({
   url,
   name,
   language,
-  stargazersCount,
-  forksCount,
-  updatedAt,
+  stargazers_count,
+  forks_count,
+  updated_at,
 }) => {
   return (
     <div>
@@ -31,11 +31,11 @@ const RepoItem = ({
         >
           {language}
         </span>
-        <span className={styles.star}>{stargazersCount}</span>
-        <span className={styles.forks}>{forksCount}</span>
+        <span className={styles.star}>{stargazers_count}</span>
+        <span className={styles.forks}>{forks_count}</span>
         <span className={styles.date}>
           {"Updated on " +
-            new Date(updatedAt).toLocaleDateString("en-GB", {
+            new Date(updated_at).toLocaleDateString("en-GB", {
               day: "numeric",
               month: "short",
               year: "numeric",

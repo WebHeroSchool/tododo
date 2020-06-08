@@ -17,16 +17,15 @@
   cursor: pointer;
   border: none;
   outline: none;
-  font: normal normal 16px/18px Roboto sans-serif;
+  font: normal normal 16px/18px Roboto, sans-serif;
   display: flex;
   flex-flow: row nowrap;
-  height: 30px;
 }
 
 .button:hover {
   background: #356eff;
   border-radius: 23px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .count_item {
@@ -36,12 +35,12 @@
   margin: 0;
 }
 
-.button_active .count_item{
-  color: #FFFFFF;
+.button_active .count_item {
+  color: #fff;
 }
 
 .button:hover .count_item {
-  color: #ffffff;
+  color: #fff;
 }
 
 .button_active {

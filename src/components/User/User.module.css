@@ -1,8 +1,8 @@
 .user {
   width: 700px;
   height: 200px;
-  background: #ffffff;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   margin-bottom: 14px;
   display: flex;
@@ -16,12 +16,11 @@
   justify-content: center;
 }
 
-.errorTextUser{
-  font: normal bold 14px/16px 'Roboto';
+.errorTextUser {
+  font: normal bold 14px/16px "Roboto", sans-serif;
 }
 
-
-.wrap__preloader{
+.wrap__preloader {
   width: 700px;
 }
 

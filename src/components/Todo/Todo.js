@@ -37,26 +37,24 @@ const Todo = () => {
   const [count, setCount] = useState(initialState.count);
   const [sortTask, setSort] = useState(initialState.sortTask);
 
-  useEffect(() => {
-    const items = localStorage.getItem("items");
-    setItems(JSON.parse(items));
-  }, []);
+  // useEffect(() => {
+  //   const items = localStorage.getItem("items");
+  //   setItems(JSON.parse(items));
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(items));
-  }, [items]);
+  // useEffect(() => {
+  //   localStorage.setItem("items", JSON.stringify(items));
+  // }, [items]);
 
-  const onDragEnd = result => {
+  const onDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) return;
 
     const newTodoItems = [...items];
 
-    const [removed] = newTodoItems.splice(source.index,1);
+    const [removed] = newTodoItems.splice(source.index, 1);
     newTodoItems.splice(destination.index, 0, removed);
-    setItems([
-      ...newTodoItems
-    ])
+    setItems([...newTodoItems]);
   };
 
   const onClickDone = (id) => {
@@ -114,38 +112,38 @@ const Todo = () => {
   return (
     <section className={styles.todo}>
       <DragDropContext onDragEnd={onDragEnd}>
-      <div className={styles.todo_header}>
-        <h1 className={styles.title}>Список моих дел</h1>
-        <Footer
-          count_all={allItems.length}
-          count_end={completedItems.length}
-          count_inWork={uncompletedItems.length}
-          onClickSort={onClickSort}
-          sorting={sortTask}
-        />
-      </div>
-      <div className={styles.wrap_todo}>
-        {items.length === 0 ? (
-          <div className={styles.empty_task}>
-            <div className={styles.error_image} />
-            <p className={styles.error_message}>
-              Вы ещё не добавили не одной задачи
-            </p>
-            <p className={styles.message_fix}>Сделайте это прямо сейчас!</p>
-          </div>
-        ) : (
-          <ItemList
-            items={items}
-            onClickDone={onClickDone}
-            onClickDelete={onClickDelete}
-            sort={sortingTasks}
-            sortValue={sortTask}
+        <div className={styles.todo_header}>
+          <h1 className={styles.title}>Список моих дел</h1>
+          <Footer
+            countAll={allItems.length}
+            countEnd={completedItems.length}
+            countInWork={uncompletedItems.length}
+            onClickSort={onClickSort}
+            sorting={sortTask}
           />
-        )}
-      </div>
-      <div>
-        <InputItem onClickAdd={onClickAdd} />
-      </div>
+        </div>
+        <div className={styles.wrap_todo}>
+          {items.length === 0 ? (
+            <div className={styles.empty_task}>
+              <div className={styles.error_image} />
+              <p className={styles.error_message}>
+                Вы ещё не добавили не одной задачи
+              </p>
+              <p className={styles.message_fix}>Сделайте это прямо сейчас!</p>
+            </div>
+          ) : (
+            <ItemList
+              items={items}
+              onClickDone={onClickDone}
+              onClickDelete={onClickDelete}
+              sort={sortingTasks}
+              sortValue={sortTask}
+            />
+          )}
+        </div>
+        <div>
+          <InputItem onClickAdd={onClickAdd} />
+        </div>
       </DragDropContext>
     </section>
   );
