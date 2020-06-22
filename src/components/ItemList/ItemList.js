@@ -13,7 +13,7 @@ const ItemList = ({ onClickDone, onClickDelete, sort, sortValue }) => (
     ) : (
       <ul className={styles.item_list}>
         {sort.map((item) => (
-          <li key={item.value} className={styles.item}>
+          <li key={item.id} className={styles.item}>
             <div className={styles.task}>
               <Item
                 value={item.value}

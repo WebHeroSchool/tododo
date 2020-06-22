@@ -9,7 +9,7 @@ const App = () => (
   <Router>
     <main className={styles.wrap}>
       <Header />
-      <section>
+      <section className={styles.content}>
         <Route path="/" exact component={About} />
 
         <Route path="/todo" component={Todo} />

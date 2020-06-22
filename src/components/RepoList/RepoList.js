@@ -6,7 +6,8 @@ import Button from "../Button/Button";
 import Repo from "../Repo/Repo";
 
 const octokit = new Octokit();
-const userName = "ksuburn";
+const userName = "OtoSigen";
+// ksuburn
 //dzimitron
 class RepoList extends React.Component {
   state = {

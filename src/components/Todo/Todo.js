@@ -31,11 +31,13 @@ const Todo = () => {
     ],
     count: 4,
     sortTask: "Все",
+    //isRepeat: false
   };
 
   const [items, setItems] = useState(initialState.items);
   const [count, setCount] = useState(initialState.count);
   const [sortTask, setSort] = useState(initialState.sortTask);
+  //const [isRepeat, setRepeat] = useState(initialState.isRepeat);
 
   // useEffect(() => {
   //   const items = localStorage.getItem("items");
@@ -46,16 +48,16 @@ const Todo = () => {
   //   localStorage.setItem("items", JSON.stringify(items));
   // }, [items]);
 
-  const onDragEnd = (result) => {
-    const { source, destination } = result;
-    if (!destination) return;
-
-    const newTodoItems = [...items];
-
-    const [removed] = newTodoItems.splice(source.index, 1);
-    newTodoItems.splice(destination.index, 0, removed);
-    setItems([...newTodoItems]);
-  };
+  // const onDragEnd = (result) => {
+  //   const { source, destination } = result;
+  //   if (!destination) return;
+  //
+  //   const newTodoItems = [...items];
+  //
+  //   const [removed] = newTodoItems.splice(source.index, 1);
+  //   newTodoItems.splice(destination.index, 0, removed);
+  //   setItems([...newTodoItems]);
+  // };
 
   const onClickDone = (id) => {
     const newItemList = items.map((item) => {
@@ -86,6 +88,11 @@ const Todo = () => {
     ];
     setItems(newItems);
     setCount((count) => count + 1);
+    // setRepeat(() => {
+    //   if(items.filter((item) => item.value === inputValue)){
+    //     return isRepeat(true)
+    //   }
+    // })
   };
 
   const onClickSort = (sorting) => setSort(sorting);
@@ -111,7 +118,7 @@ const Todo = () => {
 
   return (
     <section className={styles.todo}>
-      <DragDropContext onDragEnd={onDragEnd}>
+      {/*<DragDropContext onDragEnd={onDragEnd}>*/}
         <div className={styles.todo_header}>
           <h1 className={styles.title}>Список моих дел</h1>
           <Footer
@@ -144,7 +151,7 @@ const Todo = () => {
         <div>
           <InputItem onClickAdd={onClickAdd} />
         </div>
-      </DragDropContext>
+      {/*</DragDropContext>*/}
     </section>
   );
 };

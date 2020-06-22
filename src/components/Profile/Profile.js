@@ -8,7 +8,7 @@ const Profile = ({ avatar, name }) => {
       <img src={avatar} alt="" className={styles.avatar} />
       <div className={styles.description}>
         <h3 className={styles.text}>{name}</h3>
-        <p className={styles.exp}>Junior frontend developer</p>
+        <p className={styles.exp}>Frontend developer</p>
         <div className={styles.contact}>
           <a className={styles.email} href="mailto:otosigen@gmail.com">
             otosigen@gmail.com

@@ -10,6 +10,15 @@ class InputItem extends React.Component {
   };
 
   onButtonClick = () => {
+    // const { items } = this.props;
+    //
+    // items.forEach((item) => {
+    //   if (item.value === this.state.inputValue) {
+    //     this.setState({
+    //       isRepeat: true,
+    //     });
+    //   }
+    // });
     if (this.state.inputValue === "") {
       this.setState({
         isEmpty: true,
@@ -25,30 +34,27 @@ class InputItem extends React.Component {
   };
 
   render() {
-    const { inputValue, isEmpty, isRepeat } = this.state;
-    const { classNameForInputWrapp } = this.props;
-
+    const { inputValue, isEmpty } = this.state;
+    const { isRepeat } = this.state;
     return (
       <div className={styles.input_wrap}>
         <div
           className={classnames({
             [styles["wrap__error-empty-text"]]: isEmpty,
-            [styles["wrap__error-repeat-case"]]: classNameForInputWrapp,
+            [styles["wrap__error-repeat-case"]]: isRepeat,
           })}
         >
           <input
             placeholder={"Введите сюда название дела..."}
             className={styles.input}
-            value={this.state.inputValue}
+            value={inputValue}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
                 this.onButtonClick();
               }
             }}
             onChange={(event) =>
-              this.setState({
-                inputValue: event.target.value,
-              })
+              this.setState({ inputValue: event.target.value })
             }
           />
         </div>
