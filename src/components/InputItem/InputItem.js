@@ -7,39 +7,51 @@ class InputItem extends React.Component {
   state = {
     inputValue: "",
     isEmpty: false,
+    isRepeat: false,
+  };
+
+  onLabelChange = (e) => {
+    this.setState({
+      inputValue: e.target.value,
+    });
   };
 
   onButtonClick = () => {
-    // const { items } = this.props;
-    //
-    // items.forEach((item) => {
-    //   if (item.value === this.state.inputValue) {
-    //     this.setState({
-    //       isRepeat: true,
-    //     });
-    //   }
-    // });
-    if (this.state.inputValue === "") {
+    let { onClickAdd, items } = this.props;
+
+    let isRepeat = false;
+    items.forEach((item) => {
+      if (item.value === this.state.inputValue) {
+        isRepeat = true;
+      }
+    });
+    if (this.state.inputValue === "" || isRepeat) {
       this.setState({
         isEmpty: true,
       });
+      setTimeout(() => {
+        this.setState({
+          isEmpty: false,
+        });
+      }, 1500);
     } else {
       this.setState({
         inputValue: "",
         isEmpty: false,
+        isRepeat: false,
       });
-
-      this.props.onClickAdd(this.state.inputValue);
+      onClickAdd(this.state.inputValue);
     }
   };
 
   render() {
-    const { inputValue, isEmpty } = this.state;
-    const { isRepeat } = this.state;
+    const { isEmpty, isRepeat } = this.state;
+
     return (
       <div className={styles.input_wrap}>
         <div
           className={classnames({
+            [styles["input_style"]]: true,
             [styles["wrap__error-empty-text"]]: isEmpty,
             [styles["wrap__error-repeat-case"]]: isRepeat,
           })}
@@ -47,15 +59,13 @@ class InputItem extends React.Component {
           <input
             placeholder={"Введите сюда название дела..."}
             className={styles.input}
-            value={inputValue}
             onKeyDown={(e) => {
               if (e.keyCode === 13) {
                 this.onButtonClick();
               }
             }}
-            onChange={(event) =>
-              this.setState({ inputValue: event.target.value })
-            }
+            value={this.state.inputValue}
+            onChange={this.onLabelChange}
           />
         </div>
         <button className={styles.btn_input} onClick={this.onButtonClick} />

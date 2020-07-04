@@ -76,3 +76,9 @@
 .js_circle:before {
   background: #f1e05a;
 }
+
+@media (max-width: 455px) {
+  .date {
+    display: none;
+  }
+}

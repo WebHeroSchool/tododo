@@ -3,10 +3,11 @@ import Vk from "./Vk";
 import Facebook from "./Facebook";
 import Linkedin from "./Linkedin";
 import Github from "./Githhub";
+import styles from "./Icons.module.css";
 
 const Icons = () => {
   return (
-    <div>
+    <div className={styles.icons_wrap}>
       <Vk />
       <Facebook />
       <Github />

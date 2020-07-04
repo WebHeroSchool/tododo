@@ -5,3 +5,19 @@
 .icon__link_hover:hover {
   fill: #356eff;
 }
+
+@media (max-width: 650px) {
+  .icons_wrap {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .icons_wrap {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+  }
+}

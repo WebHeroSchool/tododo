@@ -48,7 +48,7 @@ class User extends React.Component {
           </div>
         ) : null}
         {!isLoadingUser && (
-          <div>
+          <div className={styles.info_wrap}>
             {isErrorUser ? (
               <div className={styles.error}>
                 <span className={styles.errorTextUser}>{errorTextUser}</span>

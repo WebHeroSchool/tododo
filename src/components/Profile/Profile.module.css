@@ -1,15 +1,17 @@
 .wrap {
+  position: relative;
   display: flex;
   flex-flow: row;
   justify-content: space-around;
   align-items: center;
-  width: 700px;
+  width: 100%;
 }
 
 .avatar {
   width: 180px;
-  height: auto;
+  height: 180px;
   border-radius: 9px;
+  margin-right: 5%;
 }
 
 .text {
@@ -29,7 +31,7 @@
   font-size: 12px;
   line-height: 115%;
   color: #999;
-  margin: 0;
+  margin-right: 5%;
 }
 
 .exp {
@@ -37,6 +39,7 @@
 }
 
 .icons__logo {
+  position: relative;
   align-self: flex-end;
 }
 
@@ -104,4 +107,25 @@
 a {
   text-decoration: none;
   color: #999;
+}
+
+@media (max-width: 420px) {
+  .wrap {
+    flex-flow: column;
+  }
+
+  .description {
+    align-items: center;
+  }
+
+  .icons__logo {
+    flex-flow: row;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 3%;
+  }
 }

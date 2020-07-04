@@ -48,3 +48,9 @@
   border-radius: 23px;
   color: #ffffff;
 }
+
+@media (max-width: 660px) {
+  .button {
+    font-size: 14px;
+  }
+}
