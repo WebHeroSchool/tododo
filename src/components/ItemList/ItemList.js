@@ -2,6 +2,7 @@ import React from "react";
 import Item from "../Item/Item";
 import styles from "../Todo/Todo.module.css";
 import PropTypes from "prop-types";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 const ItemList = ({ onClickDone, onClickDelete, sort, sortValue }) => (
   <>

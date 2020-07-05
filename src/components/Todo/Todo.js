@@ -3,7 +3,6 @@ import ItemList from "../ItemList/ItemList";
 import InputItem from "../InputItem/InputItem";
 import Footer from "../Footer/Footer";
 import styles from "../Todo/Todo.module.css";
-import { DragDropContext } from "react-beautiful-dnd";
 
 const Todo = () => {
   const initialState = {
@@ -24,17 +23,6 @@ const Todo = () => {
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
-
-  const onDragEnd = (result) => {
-    const { source, destination } = result;
-    if (!destination) return;
-
-    const newTodoItems = [...items];
-
-    const [removed] = newTodoItems.splice(source.index, 1);
-    newTodoItems.splice(destination.index, 0, removed);
-    setItems([...newTodoItems]);
-  };
 
   const onClickDone = (id) => {
     const newItemList = items.map((item) => {
@@ -90,40 +78,38 @@ const Todo = () => {
 
   return (
     <section className={styles.todo}>
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div className={styles.todo_header}>
-          <h1 className={styles.title}>Список моих дел</h1>
-          <Footer
-            countAll={allItems.length}
-            countEnd={completedItems.length}
-            countInWork={uncompletedItems.length}
-            onClickSort={onClickSort}
-            sorting={sortTask}
+      <div className={styles.todo_header}>
+        <h1 className={styles.title}>Список моих дел</h1>
+        <Footer
+          countAll={allItems.length}
+          countEnd={completedItems.length}
+          countInWork={uncompletedItems.length}
+          onClickSort={onClickSort}
+          sorting={sortTask}
+        />
+      </div>
+      <div className={styles.wrap_todo}>
+        {items.length === 0 ? (
+          <div className={styles.empty_task}>
+            <div className={styles.error_image} />
+            <p className={styles.error_message}>
+              Вы ещё не добавили не одной задачи
+            </p>
+            <p className={styles.message_fix}>Сделайте это прямо сейчас!</p>
+          </div>
+        ) : (
+          <ItemList
+            items={items}
+            onClickDone={onClickDone}
+            onClickDelete={onClickDelete}
+            sort={sortingTasks}
+            sortValue={sortTask}
           />
-        </div>
-        <div className={styles.wrap_todo}>
-          {items.length === 0 ? (
-            <div className={styles.empty_task}>
-              <div className={styles.error_image} />
-              <p className={styles.error_message}>
-                Вы ещё не добавили не одной задачи
-              </p>
-              <p className={styles.message_fix}>Сделайте это прямо сейчас!</p>
-            </div>
-          ) : (
-            <ItemList
-              items={items}
-              onClickDone={onClickDone}
-              onClickDelete={onClickDelete}
-              sort={sortingTasks}
-              sortValue={sortTask}
-            />
-          )}
-        </div>
-        <div>
-          <InputItem onClickAdd={onClickAdd} items={items} />
-        </div>
-      </DragDropContext>
+        )}
+      </div>
+      <div>
+        <InputItem onClickAdd={onClickAdd} items={items} />
+      </div>
     </section>
   );
 };

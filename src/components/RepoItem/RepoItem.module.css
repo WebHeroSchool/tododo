@@ -35,8 +35,8 @@
   width: 28px;
 }
 
-.star:before,
-.forks:before {
+.star::before,
+.forks::before {
   content: "";
   height: 16px;
   width: 16px;
@@ -45,7 +45,7 @@
   bottom: 0;
 }
 
-.star:before {
+.star::before {
   background: url(../img/Frame2.png) no-repeat;
 }
 
@@ -53,9 +53,9 @@
   background: url(../img/Union.png) no-repeat;
 }
 
-.html_circle:before,
-.css_circle:before,
-.js_circle:before {
+.html_circle::before,
+.css_circle::before,
+.js_circle::before {
   content: "";
   border-radius: 50%;
   height: 16px;
@@ -65,11 +65,11 @@
   bottom: 0;
 }
 
-.html_circle:before {
+.html_circle::before {
   background: #e34c26;
 }
 
-.css_circle:before {
+.css_circle::before {
   background: #563d7c;
 }
 

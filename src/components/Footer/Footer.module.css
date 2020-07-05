@@ -46,7 +46,7 @@
 .button_active {
   background: #356eff;
   border-radius: 23px;
-  color: #ffffff;
+  color: #fff;
 }
 
 @media (max-width: 660px) {

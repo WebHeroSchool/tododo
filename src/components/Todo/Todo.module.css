@@ -39,7 +39,7 @@
 }
 
 .item_list::-webkit-scrollbar-thumb {
-  background: #cccccc;
+  background: #ccc;
   border-radius: 6px;
 }
 
@@ -53,11 +53,9 @@
   box-sizing: border-box;
   border-radius: 41px;
   height: 36px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin: 0 10px 8px 10px;
 }
 
@@ -120,7 +118,7 @@ ul {
   display: none;
 }
 
-.text:before {
+.text::before {
   content: "";
   position: relative;
   width: 16px;
@@ -132,9 +130,10 @@ ul {
   margin-right: 10px;
 }
 
-input:checked ~ .text:before {
+input:checked ~ .text::before {
   background: #356eff;
 }
+
 .item {
   color: #000;
 }
