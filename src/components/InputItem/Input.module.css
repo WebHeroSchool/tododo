@@ -1,9 +1,65 @@
-.addtask__wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+.input_wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: auto;
+  position: absolute;
+  bottom: 30px;
+  justify-content: center;
+  max-width: 700px;
+  width: 100%;
+  padding: 0 2% 0 2%;
 }
 
 .input {
-    width: 250px;
+  max-width: 592px;
+  width: 100%;
+  height: 36px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 29px;
+  outline: none;
+  padding-left: 10px;
+}
+
+.btn_input {
+  margin-left: 8px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: url("../img/btn_input.png") 50% 50% no-repeat;
+}
+
+.input:hover {
+  border: 1px solid #356eff;
+}
+
+.wrap__error-empty-text::before {
+  content: "Такое дело уже есть в списке или нужно ввести текст!";
+  position: absolute;
+  padding: 10px;
+  width: 170px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #356eff;
+  border-radius: 6px;
+  transform: translateY(-130%);
+}
+
+.wrap__error-repeat-case::before {
+  content: "Это дело уже есть в списке!";
+  position: absolute;
+  padding: 10px;
+  width: 170px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #356eff;
+  border-radius: 6px;
+  transform: translateY(-130%);
+}
+
+.input_style {
+  width: 70%;
 }

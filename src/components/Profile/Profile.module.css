@@ -1,16 +1,131 @@
 .wrap {
-    min-width: 300px;
-    padding: 10px;
-    display: flex;
-    border: 1px solid lightgray;   
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 9px;
+  margin-right: 5%;
+}
+
+.text {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 100%;
+  margin: 0;
+  color: #000;
+}
+
+.description {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 115%;
+  color: #999;
+  margin-right: 5%;
+}
+
+.exp {
+  margin-bottom: 14px;
+}
+
+.icons__logo {
+  position: relative;
+  align-self: flex-end;
+}
+
+.contact {
+  display: flex;
+  flex-flow: column;
+}
+
+.email::before {
+  content: "";
+  background: url(../Icons/mail.svg) no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  margin-left: -20px;
+  margin-top: -2px;
+}
+
+.email:hover::before {
+  content: "";
+  background: url(../Icons/mail-hover.png) no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  margin-left: -20px;
+  margin-top: -2px;
+}
+
+.email,
+.phone {
+  height: 16px;
+  margin-bottom: 9px;
+  padding-left: 20px;
+}
+
+.phone::before {
+  content: "";
+  background: url(../Icons/telegram.svg) no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  margin-left: -20px;
+  margin-top: -2px;
+}
+
+.phone:hover::before {
+  content: "";
+  background: url(../Icons/telegram-hover.png) no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  margin-left: -20px;
+  margin-top: -2px;
+}
+
+.phone:hover,
+.email:hover {
+  color: #356eff;
+}
+
+a {
+  text-decoration: none;
+  color: #999;
+}
+
+@media (max-width: 420px) {
+  .wrap {
+    flex-flow: column;
   }
-  
+
+  .description {
+    align-items: center;
+  }
+
+  .icons__logo {
+    flex-flow: row;
+    align-items: center;
+  }
+
   .avatar {
-    width: 100px;
-    height: auto;
-    padding: 10px;
+    width: 220px;
+    height: 220px;
+    margin-bottom: 3%;
   }
-  
-  .text {
-    padding: 10px;
-  }
+}

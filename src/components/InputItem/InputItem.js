@@ -1,72 +1,74 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
 import styles from "../InputItem/Input.module.css";
-import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
 class InputItem extends React.Component {
   state = {
     inputValue: "",
-    isError: false,
+    isEmpty: false,
+    isRepeat: false,
+  };
+
+  onLabelChange = (e) => {
+    this.setState({
+      inputValue: e.target.value,
+    });
   };
 
   onButtonClick = () => {
-    if (this.state.inputValue === false) {
+    let { onClickAdd, items } = this.props;
+
+    let isRepeat = false;
+    items.forEach((item) => {
+      if (item.value === this.state.inputValue) {
+        isRepeat = true;
+      }
+    });
+    if (this.state.inputValue === "" || isRepeat) {
       this.setState({
-        isError: true,
+        isEmpty: true,
       });
+      setTimeout(() => {
+        this.setState({
+          isEmpty: false,
+        });
+      }, 1500);
     } else {
       this.setState({
         inputValue: "",
-        isError: false,
+        isEmpty: false,
+        isRepeat: false,
       });
-
-      this.props.onClickAdd(this.state.inputValue);
+      onClickAdd(this.state.inputValue);
     }
   };
 
   render() {
-    let textField;
-    if (this.state.isError === false) {
-      textField = (
-        <TextField
-          id="outlined-dense-multiline"
-          label="Добавить задачу"
-          margin="dense"
-          variant="outlined"
-          value={this.state.inputValue}
-          onChange={(event) =>
-            this.setState({ inputValue: event.target.value })
-          }
-        />
-      );
-    } else {
-      textField = (
-        <TextField
-          error
-          id="outlined-dense-multiline"
-          className={styles.addtask__wrapper}
-          label="Нужно ввести текст!"
-          margin="dense"
-          variant="outlined"
-          value={this.state.inputValue}
-          onChange={(event) =>
-            this.setState({ inputValue: event.target.value })
-          }
-        />
-      );
-    }
+    const { isEmpty, isRepeat } = this.state;
 
     return (
-      <div className={styles.addtask__wrapper}>
-        {textField}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.onButtonClick}
+      <div className={styles.input_wrap}>
+        <div
+          className={classnames({
+            [styles["input_style"]]: true,
+            [styles["wrap__error-empty-text"]]: isEmpty,
+            [styles["wrap__error-repeat-case"]]: isRepeat,
+          })}
         >
-          Добавить
-        </Button>
+          <input
+            placeholder={"Введите сюда название дела..."}
+            className={styles.input}
+            onKeyDown={(e) => {
+              if (e.keyCode === 13) {
+                this.onButtonClick();
+              }
+            }}
+            value={this.state.inputValue}
+            onChange={this.onLabelChange}
+          />
+        </div>
+        <button className={styles.btn_input} onClick={this.onButtonClick} />
       </div>
     );
   }

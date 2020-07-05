@@ -1,0 +1,89 @@
+.repo {
+  max-width: 700px;
+  height: 432px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.repo__list {
+  max-width: 636px;
+  height: 50px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  list-style-type: none;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+}
+
+ol {
+  margin: 0;
+  padding: 20px 32px 0 32px;
+}
+
+.wrap__preloader {
+  width: 700px;
+}
+
+.preloader {
+  margin-top: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  width: 700px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.errorTextRep {
+  font: normal bold 14px/16px "Roboto", sans-serif;
+}
+
+.title {
+  margin: 24px 0 0 30px;
+  font: normal bold 16px/18px "Roboto", sans-serif;
+}
+
+.norepo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error_image {
+  background: url(../img/repoImage.png) no-repeat;
+  margin: 60px 0 24px 0;
+  height: 164px;
+  width: 267px;
+}
+
+.error_message {
+  font: normal normal 18px/21px "Roboto", sans-serif;
+  margin: 0 0 8px 0;
+}
+
+.message_fix {
+  margin: 0;
+  color: #999;
+  font: normal normal 16px/18px "Roboto", sans-serif;
+}
+
+.link {
+  color: #356eff;
+  text-decoration: underline;
+}
+
+.repo__wrap {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 432px;
+}
